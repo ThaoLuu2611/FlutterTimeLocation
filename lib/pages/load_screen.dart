@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:localtime/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -49,9 +50,14 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.all(50.0),
-      child: Text('Loading'),
-    ));
+      backgroundColor: Colors.blue[900],
+        body: Center(
+            child: SpinKitFadingCube(
+              color: Colors.white,
+              size: 80.0,
+            ),
+        ),
+
+    );
   }
 }
