@@ -18,11 +18,30 @@ class _LoadingState extends State<Loading> {
     print('title = '+map['title']);
   }
 
+  void getTime() async
+  {
+    Response response = await get('http://worldtimeapi.org/api/timezone/Europe/London');
+    Map data = jsonDecode(response.body);
+    //print(data);
+    //get propertise prom json data
+    String dateTime = data['datetime'];
+    String offSet = data['utc_offset'];
+    print(dateTime);
+    print(offSet);
+
+    //create datetime object
+    DateTime now = DateTime.parse(dateTime);
+    DateTime newTime = now.add(Duration(hours: 2));
+    print(newTime);
+
+  }
+
   int counter = 0;
   @override
   void initState() {
     super.initState();
-    getData();
+//    getData();
+    getTime();
     print('init function run');
   }
   @override
