@@ -10,7 +10,6 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  String time = 'loading';
 
   void getData() async {
     print('load data');
@@ -26,10 +25,14 @@ class _LoadingState extends State<Loading> {
     WorldTime instance = WorldTime(
         location: 'Jakarta', flag: 'jakarta.png', url: 'Asia/Jakarta');
     await instance.getTime();
-    setState(() {
-      time = instance.time;
+
+    //push home screen ontop of loading screen
+    Navigator.pushNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
     });
-    print('loading screen time = ' + instance.time);
+   // Navigator.pushReplacementNamed(context, '/home');
   }
 
   int counter = 0;
@@ -48,7 +51,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
         body: Padding(
       padding: EdgeInsets.all(50.0),
-      child: Text(time),
+      child: Text('Loading'),
     ));
   }
 }
