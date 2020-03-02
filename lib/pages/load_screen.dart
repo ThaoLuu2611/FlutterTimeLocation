@@ -12,40 +12,43 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   String time = 'loading';
 
-  void getData() async{
+  void getData() async {
     print('load data');
-    Response response = await get('http://jsonplaceholder.typicode.com/todos/1');
+    Response response =
+        await get('http://jsonplaceholder.typicode.com/todos/1');
     print(response.body);
     Map map = jsonDecode(response.body);
     print(map);
-    print('title = '+map['title']);
+    print('title = ' + map['title']);
   }
 
-  void setWorldTime() async{
-    WorldTime instance = WorldTime(location: 'Jakarta', flag: 'jakarta.png', url:'Asia/Jakarta');
+  void setWorldTime() async {
+    WorldTime instance = WorldTime(
+        location: 'Jakarta', flag: 'jakarta.png', url: 'Asia/Jakarta');
     await instance.getTime();
     setState(() {
       time = instance.time;
     });
-    print('loading screen time = '+instance.time);
+    print('loading screen time = ' + instance.time);
   }
 
   int counter = 0;
+
   @override
   void initState() {
     super.initState();
 //    getData();
-   // getTime();
+    // getTime();
     setWorldTime();
     print('init function run');
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50.0),
-        child: Text(time),
-      )
-    );
+        body: Padding(
+      padding: EdgeInsets.all(50.0),
+      child: Text(time),
+    ));
   }
 }
