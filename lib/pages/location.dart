@@ -6,25 +6,26 @@ class Location extends StatefulWidget {
 }
 
 class _LocationState extends State<Location> {
-  void getData(){
-    //simulate a network request for user name
-    Future.delayed(Duration(seconds: 4),(){
-      print('Viet Nam');
-    });
 
-    //similate network request to get bio of username
-    Future.delayed(Duration(seconds: 2),(){
-      print('Ha Noi');
-    });
+  void getUser() async{
 
-    print('statement');
+      String user = await Future.delayed(Duration(seconds: 3),(){
+        return 'Thao';
+      });
+
+      String country = await Future.delayed(Duration(seconds: 2),(){
+        return 'Viet Nam';
+      });
+      print('$user = $country');
+
   }
+
   int counter = 0;
   @override
   void initState() {
     super.initState();
+    getUser();
     print('init function run');
-    getData();
   }
   @override
   Widget build(BuildContext context) {
