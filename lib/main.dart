@@ -4,10 +4,11 @@ import 'package:localtime/pages/load_screen.dart';
 import 'package:localtime/pages/location.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/home',
+  initialRoute: '/',
   routes: {
     '/': (context) => Loading(),
     '/home': (context) => Home(),
     '/location': (context) => Location(),
   },
-    ));
+
+));

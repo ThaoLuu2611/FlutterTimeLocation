@@ -7,26 +7,7 @@ class Location extends StatefulWidget {
 
 class _LocationState extends State<Location> {
 
-  void getUser() async{
 
-      String user = await Future.delayed(Duration(seconds: 3),(){
-        return 'Thao';
-      });
-
-      String country = await Future.delayed(Duration(seconds: 2),(){
-        return 'Viet Nam';
-      });
-      print('$user = $country');
-
-  }
-
-  int counter = 0;
-  @override
-  void initState() {
-    super.initState();
-    getUser();
-    print('init function run');
-  }
   @override
   Widget build(BuildContext context) {
     print('build function run');
@@ -40,10 +21,10 @@ class _LocationState extends State<Location> {
       body: RaisedButton(
         onPressed: (){
           setState(() {
-            counter +=1;
+          //  counter +=1;
           });
         },
-        child: Text('counter is $counter'),
+        child: Text('counter is '),
       ),
     );
   }
