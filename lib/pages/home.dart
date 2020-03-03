@@ -35,8 +35,8 @@ class _HomeState extends State<Home> {
               child: Column(
                 children: <Widget>[
                   FlatButton.icon(
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/location');
+                      onPressed: () async{
+                        dynamic result = await Navigator.pushNamed(context, '/location');
                       },
                       icon: Icon(Icons.edit_location),
                       label: Text(
