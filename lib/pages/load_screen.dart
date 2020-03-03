@@ -34,7 +34,7 @@ class _LoadingState extends State<Loading> {
       'time': instance.time,
       'isDaytime': instance.isDaytime,
     });
-   // Navigator.pushReplacementNamed(context, '/home');
+  //  Navigator.pushReplacementNamed(context, '/home');
   }
 
   int counter = 0;
@@ -45,11 +45,12 @@ class _LoadingState extends State<Loading> {
 //    getData();
     // getTime();
     setWorldTime();
-    print('init function run');
+    print('Loading screen init function run');
   }
 
   @override
   Widget build(BuildContext context) {
+    print('loading init build');
     return Scaffold(
       backgroundColor: Colors.blue[900],
         body: Center(

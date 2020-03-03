@@ -9,13 +9,19 @@ class _HomeState extends State<Home> {
   Map data = {};
   @override
   Widget build(BuildContext context) {
+    print('home build screen');
     //receceive actual arguments that we sent from loading screen
     data = ModalRoute.of(context).settings.arguments;
     print(data);
-
-    String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
+    String bgImage = "day.jpg";
+    Color bgColor = Colors.blue;
+    if(data['isDaytime'] != null) {
+      String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
+      Color bgColor = data['isDaytime'] ? Colors.blue : Colors.blue[800];
+    }
 
     return Scaffold(
+     // backgroundColor: bgColor,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -33,7 +39,12 @@ class _HomeState extends State<Home> {
                         Navigator.pushNamed(context, '/location');
                       },
                       icon: Icon(Icons.edit_location),
-                      label: Text('Edit location')),
+                      label: Text(
+                          'Edit location',
+                        style: TextStyle(
+                          color: Colors.green,
+                        ),
+                      )),
                   SizedBox(height: 20.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
